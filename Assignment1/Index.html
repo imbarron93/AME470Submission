@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resume</title>
+
+<link href="accordion.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <button class="accordion">Education</button>
+  <div class="panel">
+    <p style="font-size:100%;">Bachelor of Science in Informatics <br>
+      Ira A. Fulton Schools of Engineering <br>
+      Arizona State University<br><br>
+      Anticipated Graduation Date: May 2017 <br>
+      Cumulative GPA: 3.15 </p>
+  </div>
+
+  <button class="accordion">Skills</button>
+  <div class="panel">
+    <p style="font-size:100%;">Computer Software: Unreal Engine, MS Office, Photoshop, MySQL, Visual Studio, MaxMSP <br><br>
+Languages: HTML, CSS, JavaScript, Java, C, C++</p>
+  </div>
+
+  <button class="accordion">Awards</button>
+  <div class="panel">
+    <p style="font-size:100%;">Dean's List <br>
+    <i>Fall 2012-Present </i><br>
+    Academic honors with 3.5 GPA or higher.</p>
+  </div>
+
+  <button class="accordion">Contact</button>
+  <div class="panel">
+    <ul class="list-unstyled">
+            <li><i class="fa fa-phone fa-fw"></i> (623) 221-8965</li>
+            <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:imbarron@asu.edu">imbarron@asu.edu</a>
+            </li>
+    </ul>
+  </div>
+
+  <script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+      acc[i].onclick = function(){
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.display === "block") {
+              panel.style.display = "none";
+          } else {
+              panel.style.display = "block";
+          }
+      }
+  }
+  </script>
+
+</body>
+
+</html>
