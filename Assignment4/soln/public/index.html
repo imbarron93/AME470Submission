@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+  <meta name="viewport" content="initial-scaled=1.0, user-scalable=no, width=device-width, maximum-scaled=1.0">
   <script src='asyncReq.js'> </script>
   <script src='https://code.jquery.com/jquery-3.2.0.min.js'> </script>
   <script>
@@ -42,7 +43,7 @@
       }
       for(var i = 0; i < list.length; i++){
         markup += "<li> <a href='javascript:imageSelected(" + list[i].id + "," + (i+1) + ")'>" + list[i].name +
-            "</a></li>"; 
+            "</a></li>";
       }
       document.getElementById("todoListWrapper").innerHTML = markup;
       imageSelected(list[0].id);
@@ -88,7 +89,7 @@
       .delButton
       {
           float: right;
-      }      
+      }
       #theImage{
         height: 200px;
         width: 100%;
@@ -104,7 +105,7 @@
   <h1> Todos </h1>
   <button id='addButton' onclick='addNew()'> Add </button>
   <ol id='todoListWrapper'> </ol>
-  <div id='theDetails'> 
+  <div id='theDetails'>
     <h1 id='theTitle'></h1>
     <div id='theImage'></div>
 
