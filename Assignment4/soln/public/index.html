@@ -1,10 +1,24 @@
 <!doctype html>
 <html>
 <head>
-  <meta name="viewport" content="initial-scaled=1.0, user-scalable=no, width=device-width, maximum-scaled=1.0">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width, maximum-scale=1.0">
   <script src='asyncReq.js'> </script>
   <script src='https://code.jquery.com/jquery-3.2.0.min.js'> </script>
   <script>
+    function cancelImageEdit()
+    {
+      document.getElementById("DRFrame").src = "";
+      document.getElementById("editWrapper").style.display = "none";
+    }
+
+    function editImage(){
+      var url = document.getElementById("theImage").style.backgroundImage.replace('url("', "").replace('")','').replace("url('", "").replace("')",'');
+      console.log(url);
+      console.log(url);
+      document.getElementById("DRFrame").src = "./demo/index.html#" + url;
+      document.getElementById("editWrapper").style.display = "block";
+    }
+
     function addNew(){
       var imageURL = prompt("Enter New Image URL:");
       var id = new Date().getTime();
@@ -43,7 +57,7 @@
       }
       for(var i = 0; i < list.length; i++){
         markup += "<li> <a href='javascript:imageSelected(" + list[i].id + "," + (i+1) + ")'>" + list[i].name +
-            "</a></li>";
+            "</a></li>"; 
       }
       document.getElementById("todoListWrapper").innerHTML = markup;
       imageSelected(list[0].id);
@@ -86,10 +100,16 @@
         top: 20px;
         right: 20px;
       }
+      #uploadButton
+      {
+        position: absolute;
+        top: 20px;
+        right: 120px;
+      }
       .delButton
       {
           float: right;
-      }
+      }      
       #theImage{
         height: 200px;
         width: 100%;
@@ -98,20 +118,52 @@
         background-repeat: no-repeat;
       }
 
+      #editWrapper{
+        display: none;
+        background: rgba(0,0,0,.7);
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+      }
+
+      #editWrapper button{
+        position: fixed;
+        float: right;
+      }
+
+      #DRFrame{
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+      }
+
   </style>
 </head>
 
 <body onload='start()'>
-  <h1> Todos </h1>
-  <button id='addButton' onclick='addNew()'> Add </button>
+  <h1> Images </h1>
+  <button id='addButton' onclick='addNew()'> Add using URL </button>
+  <input id='uploadButton' type="file" onchange='uploadNew()'>
   <ol id='todoListWrapper'> </ol>
-  <div id='theDetails'>
+  <div id='theDetails'> 
     <h1 id='theTitle'></h1>
     <div id='theImage'></div>
 
     <button onclick='deleteImage()'> Delete </button>
     <button onclick='renameImage()'> Rename </button>
+    <button onclick='editImage()'> Edit </button>
 
+  </div>
+
+
+  <div id='editWrapper'> 
+    <iframe crossorigin='anonymous'  id='DRFrame'> </iframe>
+    <button style='right:0px' onclick='saveImageEdit()'> Save </button>
+    <button onclick='cancelImageEdit()'> Cancel </button>
   </div>
 </body>
 
