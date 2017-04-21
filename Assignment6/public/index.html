@@ -82,10 +82,10 @@ function editImage(){
           float: right;
       }
       #theImage{
-        height: 200px;
+        height: 300px;
         width: 100%;
         background-size: contain;
-        background-position: 50%;
+        background-position: 75%;
         background-repeat: no-repeat;
       }
       #editWrapper{
@@ -112,8 +112,12 @@ function editImage(){
 </head>
 
 <body>
+<body bgcolor="#80dfff">
+
+  <h1>My Pictures</h1>
+
   <input type='file' id='theFileUploader' onchange='fileUploaded()'>
-  <img style='height: 200px;display: block;width: auto;' id='preview'>
+  <img style='height: 200px;display: block;width: auto;padding: 100px;' id='preview'>
   <button onclick='editImage()'> Edit </button>
 
   <div id='editWrapper'>
