@@ -108,6 +108,19 @@ function editImage(){
         top: 0px;
         left: 0px;
       }
+      form{
+        margin: 0;
+        padding: 1em 0;
+        border: 1px line red;
+        }
+
+    div {
+    background-color: lightblue;
+    width: 250px;
+    border: 10px solid black;
+    padding: 25px;
+    margin: 80px;
+  }
   </style>
 </head>
 
@@ -116,14 +129,20 @@ function editImage(){
 
   <h1>My Pictures</h1>
 
-  <input type='file' id='theFileUploader' onchange='fileUploaded()'>
-  <img style='height: 200px;display: block;width: auto;padding: 100px;' id='preview'>
-  <button onclick='editImage()'> Edit </button>
+  <div><input type='file' id='theFileUploader' onchange='fileUploaded()'>
+  <img style='height: 150px;display: block;width: auto;padding: 15px;' id='preview'></div>
+
+
+  <button onclick='editImage()' style="
+        margin-left: 15px;"> Edit </button>
 
   <div id='editWrapper'>
     <iframe crossorigin='anonymous'  id='DRFrame'> </iframe>
-    <button style='right:0px' onclick='saveImageEdit()'> Save </button>
-    <button onclick='cancelImageEdit()'> Cancel </button>
+    <button style='right:0px;top: 500px;left: 150px;' onclick='saveImageEdit()'> Save </button>
+    <button onclick='cancelImageEdit()'  style="
+          margin-top: 0px;
+          top: 500px;
+          left: 60px;"> Cancel </button>
   </div>
 
 </body>
